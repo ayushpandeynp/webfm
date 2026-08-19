@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D0ECFF"
+    tools:context=".Navigator">
+
+    <!-- RadioStatus Layout -->
+    <RelativeLayout
+        android:id="@+id/radioStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#c76708"
+        android:gravity="center"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/radioStausTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connecting..."
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="12dp" />
+    </RelativeLayout>
+
+    <!-- ViewPager2 -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@id/linearLayout"
+        android:layout_below="@id/radioStatus"
+        android:layout_weight="1" />
+
+    <!-- LinearLayout for Bottom Navigation -->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <ImageButton
+            android:id="@+id/tabButton1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#1E3E62"
+            android:padding="10dp"
+            android:src="@drawable/browser_icon" />
+
+        <ImageButton
+            android:id="@+id/tabButton2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#1E3E62"
+            android:padding="10dp"
+            android:src="@drawable/book_icon" />
+
+        <ImageButton
+            android:id="@+id/tabButton3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#1E3E62"
+            android:padding="10dp"
+            android:src="@drawable/chatgpt" />
+
+    </LinearLayout>
+
+</RelativeLayout>

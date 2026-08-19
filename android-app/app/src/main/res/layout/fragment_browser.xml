@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Browser">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Browser"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:textColor="@color/black"
+                    android:text="Explore, Learn and Discover"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginVertical="18dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:weightSum="6">
+
+                <EditText
+                    android:id="@+id/browserURLBar"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:paddingHorizontal="10dp"
+                    android:background="@android:color/white"
+                    android:textColor="@color/black"
+                    android:hint="Type a URL"
+                    android:textColorHint="@color/black"
+                    android:textSize="14dp"
+                    android:layout_weight="5" />
+
+                <ImageButton
+                    android:id="@+id/browserSendButton"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="#FF6767"
+                    android:src="@drawable/send_icon" />
+
+                <ProgressBar
+                    android:id="@+id/browserSubmitProgress"
+                    android:visibility="gone"
+                    android:background="#FF6767"
+                    android:indeterminate="true"
+                    android:indeterminateTintMode="src_atop"
+                    android:indeterminateTint="@color/white"
+                    android:padding="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:background="#F0F0F0"
+                android:nestedScrollingEnabled="false"
+                android:id="@+id/browserRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

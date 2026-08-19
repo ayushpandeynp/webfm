@@ -1,0 +1,145 @@
+package com.ayush.quietlib.rfm.controller;
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import android.util.Log;
+
+import androidx.annotation.Nullable;
+
+import com.ayush.quietlib.rfm.C;
+import com.ayush.quietlib.rfm.enums.Direction;
+import com.ayush.quietlib.rfm.enums.PowerMode;
+import com.ayush.quietlib.rfm.service.FMService;
+
+/**
+ * vlad805 (c) 2020
+ */
+public class RadioController {
+    private final Context mContext;
+    private final RadioState mState;
+    private BroadcastReceiver mTunerStateUpdater;
+
+    public RadioController(final Context context) {
+        mContext = context;
+        mState = new RadioState();
+    }
+
+    public void requestForCurrentState(@Nullable final RadioStateUpdater.TunerStateListener callback) {
+        getCurrentState(state -> {
+            mState.setStatus(state.getStatus());
+            mState.setFrequency(state.getFrequency());
+            mState.setStereo(state.isStereo());
+            mState.setPs(state.getPs());
+            mState.setRecording(state.isRecording());
+            mState.setRecordingStarted(state.getRecordingStarted());
+
+            if (callback != null) {
+                final int mode =
+                        RadioStateUpdater.SET_STATUS |
+                        RadioStateUpdater.SET_FREQUENCY |
+                        RadioStateUpdater.SET_INITIAL |
+                        RadioStateUpdater.SET_RECORDING;
+
+                callback.onStateUpdated(mState, mode);
+            }
+        });
+    }
+
+    public void registerForUpdates(RadioStateUpdater.TunerStateListener callback) {
+        mTunerStateUpdater = new RadioStateUpdater(mState, callback);
+        mContext.registerReceiver(mTunerStateUpdater, RadioStateUpdater.sFilter);
+    }
+
+    public void unregisterForUpdates() {
+        if (mTunerStateUpdater != null) {
+            mContext.unregisterReceiver(mTunerStateUpdater);
+        }
+    }
+
+    public RadioState getState() {
+        return mState;
+    }
+
+    private void send(final String action) {
+        send(action, new Bundle());
+    }
+
+    private void send(final String action, final Bundle bundle) {
+        mContext.startForegroundService(new Intent(mContext, FMService.class).setAction(action).putExtras(bundle));
+    }
+
+    public void setup() {
+        send(C.Command.INSTALL);
+    }
+
+    public void launch() {
+        send(C.Command.LAUNCH);
+    }
+
+    public void kill() {
+        send(C.Command.KILL);
+    }
+
+    public void enable() {
+        send(C.Command.ENABLE);
+    }
+
+    public void setFrequency(final int kHz) {
+        final Bundle bundle = new Bundle();
+        bundle.putInt(C.Key.FREQUENCY, kHz);
+        send(C.Command.SET_FREQUENCY, bundle);
+    }
+
+    public void updateRSSI() {
+        final Bundle bundle = new Bundle();
+    }
+
+    public void jump(final Direction direction) {
+        final Bundle bundle = new Bundle();
+        bundle.putInt(C.Key.JUMP_DIRECTION, direction.getValue());
+        send(C.Command.JUMP, bundle);
+    }
+
+    public void hwSeek(final Direction direction) {
+        final Bundle bundle = new Bundle();
+        bundle.putInt(C.Key.SEEK_HW_DIRECTION, direction.getValue());
+        send(C.Command.HW_SEEK, bundle);
+    }
+
+    public void setPowerMode(final PowerMode mode) {
+        final Bundle bundle = new Bundle();
+        bundle.putString(C.Key.POWER_MODE, mode.getValue());
+        send(C.Command.POWER_MODE, bundle);
+    }
+
+    public void hwSearch() {
+        send(C.Command.HW_SEARCH);
+    }
+
+    public void disable() {
+        send(C.Command.DISABLE);
+    }
+
+    public void record(final boolean state) {
+        send(state ? C.Command.RECORD_START : C.Command.RECORD_STOP);
+    }
+
+    public interface CurrentStateListener {
+        void onCurrentStateReady(final RadioState state);
+    }
+
+    public void getCurrentState(final CurrentStateListener listener) {
+        mContext.registerReceiver(new BroadcastReceiver() {
+            @Override
+            public void onReceive(final Context context, final Intent intent) {
+                listener.onCurrentStateReady(intent.getParcelableExtra(C.Key.STATE));
+                mContext.unregisterReceiver(this);
+            }
+        }, new IntentFilter(C.Event.CURRENT_STATE));
+
+        send(C.Command.REQUEST_CURRENT_STATE);
+    }
+}

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".rfm.ReceiverPage">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/radioReceivedImageLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal" />
+
+                <RelativeLayout
+                    android:id="@+id/buttonLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Buttons will be added here programmatically -->
+
+                </RelativeLayout>
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_background"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/responseStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="IDLE"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_primary_dark"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.widget.Button
+                    android:id="@+id/startRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/green_button"
+                    android:text="Start Receiver"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="12dp" />
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="0dp" />
+
+                <android.widget.Button
+                    android:id="@+id/restartRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/red_button"
+                    android:text="Restart Receiver"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <android.widget.Button
+                android:id="@+id/clearCacheButton"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginVertical="8dp"
+                android:background="@drawable/blue_button"
+                android:text="Clear Cache"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/frequencyEditor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:hint="MHz"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="7dp"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="7dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="#6E6E6E"
+                    android:textSize="12dp" />
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="0dp" />
+
+                <android.widget.Button
+                    android:id="@+id/changeFrequencyButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/blue_button"
+                    android:text="Change Frequency"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="12dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

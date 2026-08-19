@@ -1,0 +1,15 @@
+docker==7.1.0
+Flask==3.0.3
+selenium-wire==5.1.0
+selenium
+chromedriver-autoinstaller==0.6.4
+pillow==10.4.0
+blinker==1.7.0
+pyobjc
+openai
+python-dotenv
+pygame
+huawei-lte-api
+psutil
+openmeteo_requests
+pandas

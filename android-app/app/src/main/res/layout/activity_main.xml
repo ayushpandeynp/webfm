@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#caf0f8"
+    tools:context=".MainActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+
+                android:text="Radio Controls"
+                android:textAllCaps="true"
+                android:textColor="@color/dark" />
+
+
+            <android.widget.Button
+                android:visibility="gone"
+                android:id="@+id/startRadio"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/primary_button"
+                android:text="START RADIO RECEIVER"
+                android:textColor="@color/white" />
+
+            <android.widget.Button
+                android:visibility="gone"
+                android:id="@+id/exitRadio"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/primary_button"
+                android:text="RESTART RADIO RECEIVER"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+
+                android:text="Select Profile"
+                android:textAllCaps="true"
+                android:textColor="@color/dark" />
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <Spinner
+                    android:id="@+id/profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
+            </RelativeLayout>
+
+            <EditText
+                android:visibility="gone"
+                android:id="@+id/transmitText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:gravity="start"
+                android:hint="Enter text to transmit..."
+                android:inputType="textMultiLine"
+                android:lines="20"
+                android:minHeight="180dp"
+                android:minLines="1"
+                android:padding="16dp"
+                android:textSize="13sp" />
+
+
+            <android.widget.Button
+                android:visibility="gone"
+                android:id="@+id/transmitButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/primary_button"
+                android:text="Transmit"
+                android:textColor="@color/white" />
+
+            <android.widget.Button
+                android:id="@+id/imgTransmitButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/blue_button"
+                android:text="Transmit Image"
+                android:textColor="@color/white" />
+
+            <android.widget.Button
+                android:id="@+id/sampleTransmitTextButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/green_button"
+                android:text="TEST TRANSMISSION"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <EditText
+                        android:id="@+id/frameLength"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:hint="frame_length"
+                        android:inputType="number"
+                        android:paddingLeft="12dp"
+                        android:paddingTop="7dp"
+                        android:paddingRight="12dp"
+                        android:paddingBottom="7dp"
+                        android:textSize="13dp" />
+
+                    <android.widget.Button
+                        android:id="@+id/frameLengthButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:background="@drawable/primary_button"
+                        android:padding="0dp"
+                        android:text="Update"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <CheckBox
+                    android:id="@+id/shuffle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shuffle?" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <EditText
+                    android:id="@+id/partition_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:hint="partition_size"
+                    android:inputType="number"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="7dp"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="7dp"
+                    android:textSize="13dp" />
+
+                <android.widget.Button
+                    android:id="@+id/partitionSizeButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/primary_button"
+                    android:padding="0dp"
+                    android:text="Update"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/configText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Frame Length: 500\nPartition Length: 2" />
+
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp" />
+
+            <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/progressBar"
+                style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/receivedText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:minHeight="180dp"
+                android:padding="16dp"
+                android:text="Received data will appear here."
+                android:textSize="13sp" />
+
+            <ImageView
+                android:id="@+id/receivedImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:adjustViewBounds="true"
+                android:scaleType="center"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/imgLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+
+
+            <android.widget.Button
+                android:visibility="gone"
+                android:id="@+id/receiveButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/primary_button"
+                android:text="Receive"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

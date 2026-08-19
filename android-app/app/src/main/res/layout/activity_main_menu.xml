@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#caf0f8"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:text="SONIC v2.0"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <android.widget.Button
+            android:id="@+id/launchTransmitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blue_button"
+            android:paddingHorizontal="20dp"
+            android:textColor="@color/white"
+            android:text="Transmitter" />
+
+        <android.widget.Button
+            android:id="@+id/launchReceiver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/blue_button"
+            android:paddingHorizontal="20dp"
+            android:textColor="@color/white"
+            android:text="Receiver"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+</LinearLayout>

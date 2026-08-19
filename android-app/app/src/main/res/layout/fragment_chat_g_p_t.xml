@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatGPT">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/chatgpt_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="ChatGPT"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="Get your queries answered by AI"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/query_container"
+            android:layout_below="@id/chatgpt_header"
+            android:gravity="bottom">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/chatgptRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/query_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:weightSum="6">
+
+            <EditText
+                android:id="@+id/chatgptQuery"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="5"
+                android:background="@android:color/white"
+                android:hint="Write your query"
+                android:paddingHorizontal="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="14dp" />
+
+            <ImageButton
+                android:id="@+id/chatgptQueryButton"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="#FF6767"
+                android:src="@drawable/send_icon" />
+
+            <ProgressBar
+                android:id="@+id/chatgptSubmitProgress"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="#FF6767"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/white"
+                android:indeterminateTintMode="src_atop"
+                android:padding="20dp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</FrameLayout>

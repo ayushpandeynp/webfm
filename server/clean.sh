@@ -1,0 +1,2 @@
+# AYUSH: RUN ONLY IF YOU WANT A FRESH START. DO NOT CLEAN IN THE MIDDLE OF A DEPLOYMENT UNLESS YOU HAVE BACKED UP DATA.
+rm -rf data tmp logs.log screenshots sent_wav __pycache__ cache.db sms.db metrics.db sonic.db
